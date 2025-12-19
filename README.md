@@ -119,7 +119,7 @@ Step Functions 出力 → Lambda: api_handler → API Gateway
 
 ### 🔍 プロジェクト構造
 
-プロジェクトの詳細なディレクトリ構造については、[docs/DIRECTORY_STRUCTURE.md](./docs/DIRECTORY_STRUCTURE.md) を参照してください。
+プロジェクトの詳細なディレクトリ構造については、[DIRECTORY_STRUCTURE.md](./docs/DIRECTORY_STRUCTURE.md) を参照してください。
 
 ---
 

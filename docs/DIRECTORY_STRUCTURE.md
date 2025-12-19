@@ -5,15 +5,15 @@
 ## ルートディレクトリ
 
 ```
-bedrock-rag-learning/
+poc-br-rag/
 ├── src/                        # アプリケーションソースコード
 ├── terraform/                  # インフラ定義（IaC）
 ├── scripts/                    # デプロイ・運用スクリプト
 ├── docs/                       # ドキュメント
 ├── sample-docs/                # サンプルドキュメント（Knowledge Base用）
 ├── .gitignore                  # Git除外設定
+├── .gitattributes              # Git属性設定
 ├── README.md                   # プロジェクト概要
-├── SETUP.md                    # セットアップガイド
 ├── requirements.txt            # Python依存関係（本番環境）
 └── requirements-dev.txt        # Python依存関係（開発環境）
 ```
@@ -84,6 +84,7 @@ terraform/
 ├── iam.tf                      # IAM ロール・ポリシー
 ├── cloudwatch.tf               # CloudWatch Logs ロググループ
 ├── bedrock.tf                  # Bedrock関連リソース（データソース）
+├── TERRAFORM_GUIDE.md          # Terraform 使用ガイド
 ├── terraform.tfvars.example    # 変数設定サンプル
 └── .terraform.lock.hcl         # Terraform 依存関係ロックファイル
 ```
@@ -130,11 +131,19 @@ scripts/
 
 ```
 docs/
-└── SETUP_GUIDE.md                    # 詳細セットアップガイド
+├── DIRECTORY_STRUCTURE.md      # ディレクトリ構造説明（本ドキュメント）
+├── DESIGN.md                   # システム設計ドキュメント
+├── SETUP_GUIDE.md              # 詳細セットアップガイド
+├── architecture.drawio         # アーキテクチャ図（draw.io形式）
+└── 構成図スクリーンショット.png   # アーキテクチャ図画像
 ```
 
 **含まれるドキュメント:**
+- **DIRECTORY_STRUCTURE.md**: プロジェクトのディレクトリ構造とその役割の説明
+- **DESIGN.md**: アーキテクチャ、設計方針、技術選定の詳細
 - **SETUP_GUIDE.md**: Bedrock リソースの手動作成手順（Knowledge Base, Guardrails）、変数設定、トラブルシューティング
+- **architecture.drawio**: システムアーキテクチャの図解（編集可能）
+- **構成図スクリーンショット.png**: アーキテクチャ図の画像版
 
 ### `sample-docs/`
 Knowledge Base 用のサンプルドキュメント
@@ -162,15 +171,12 @@ sample-docs/
 - コスト見積もり（クエリ単価 ~$0.005 USD）
 - 学習リソースへのリンク
 
-### `SETUP.md`
-詳細なセットアップ手順書
+### `.gitattributes`
+Git属性設定ファイル
 
-**含まれる内容:**
-- Bedrock モデルアクセス有効化手順
-- Knowledge Base の作成手順（OpenSearch Serverless, S3 連携）
-- Guardrails ポリシーの作成手順
-- `terraform.tfvars` の設定方法
-- トラブルシューティング
+**用途:**
+- ファイルタイプごとの属性設定
+- 改行コードの自動変換設定
 
 ### `requirements.txt`
 本番環境（Lambda）のPython依存関係
@@ -201,10 +207,12 @@ sample-docs/
 - **IDE設定**: `.vscode/`, `.idea/`
 - **OS ファイル**: `.DS_Store`, `Thumbs.db`
 - **AWS 設定**: `.aws/`
+- **AI ツール設定**: `.spec-workflow/`, `.claude/`
 
-**プッシュされるファイル:**
-- `.terraform.lock.hcl`: Terraform 依存関係バージョン固定（推奨）
-- `terraform.tfvars.example`: 設定サンプル（機密情報なし）
+**Git管理に含まれる重要ファイル:**
+- `.terraform.lock.hcl`: Terraform 依存関係バージョン固定
+- `terraform.tfvars.example`: 変数設定サンプル（機密情報なし）
+- `.gitattributes`: Git属性設定
 
 ---
 
