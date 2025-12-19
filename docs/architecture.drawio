@@ -1,0 +1,275 @@
+<mxfile host="65bd71144e" compressed="false">
+    <diagram id="bedrock-rag-architecture" name="Bedrock RAG API Architecture">
+        <mxGraphModel dx="1866" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="aws-cloud" value="AWSクラウド (us-east-1)" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#1B3A57;fillColor=#F4F8FC;fontStyle=1;fontColor=#1B3A57;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="80" width="1480" height="1000" as="geometry"/>
+                </mxCell>
+                <mxCell id="apigw" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#945DF2;gradientDirection=north;fillColor=#5A30B5;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="80" y="350" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="apigw-text" value="API Gateway" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=12;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="65" y="438" width="100" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="apigw-label" value="エンドポイント: POST /query&lt;br&gt;タイプ: REGIONAL" style="text;html=1;strokeColor=#34495E;strokeWidth=1;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#2E3A47;fontSize=9;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="154" y="337" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-api" value="" style="shape=image;image=https://cdn.jsdelivr.net/npm/aws-svg-icons@3.0.0-2021-07-30/lib/Architecture-Service-Icons_07302021/Arch_Compute/48/Arch_AWS-Lambda_48.svg;width=60;height=60;fontStyle=1;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="360" y="350" width="70" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-api-text" value="Lambda:&lt;br&gt;api_handler" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=11;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="345" y="442" width="100" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-api-label" value="入力検証・キャッシュ確認&lt;br&gt;Step Functions起動" style="text;html=1;strokeColor=#2980B9;strokeWidth=1;fillColor=#E8F4F8;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#2E3A47;fontSize=9;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="434" y="332" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="stepfunctions" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#FF4F8B;gradientDirection=north;fillColor=#BC1356;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.step_functions;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="680" y="350" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="stepfunctions-text" value="Step Functions" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=12;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="665" y="438" width="100" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="stepfunctions-label" value="RAG ワークフロー&lt;br&gt;5ステップのオーケストレーション" style="text;html=1;strokeColor=#27AE60;strokeWidth=1;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#2E3A47;fontSize=9;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="754" y="368" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-group" value="Lambda 関数群" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;strokeColor=#7F8C8D;fillColor=none;fontColor=#2E3A47;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;fontSize=12;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="950" y="150" width="480" height="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-gc" value="" style="shape=image;image=https://cdn.jsdelivr.net/npm/aws-svg-icons@3.0.0-2021-07-30/lib/Architecture-Service-Icons_07302021/Arch_Compute/48/Arch_AWS-Lambda_48.svg;width=60;height=60;fontStyle=1;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="980" y="180" width="60" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-gc-text" value="guardrails_check" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=10;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="960" y="255" width="100" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-kb" value="" style="shape=image;image=https://cdn.jsdelivr.net/npm/aws-svg-icons@3.0.0-2021-07-30/lib/Architecture-Service-Icons_07302021/Arch_Compute/48/Arch_AWS-Lambda_48.svg;width=60;height=60;fontStyle=1;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1150" y="180" width="60" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-kb-text" value="kb_query" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=10;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1140" y="255" width="80" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-bedrock" value="" style="shape=image;image=https://cdn.jsdelivr.net/npm/aws-svg-icons@3.0.0-2021-07-30/lib/Architecture-Service-Icons_07302021/Arch_Compute/48/Arch_AWS-Lambda_48.svg;width=60;height=60;fontStyle=1;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1320" y="180" width="60" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-bedrock-text" value="bedrock_invoke" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=10;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1305" y="255" width="90" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-cache" value="" style="shape=image;image=https://cdn.jsdelivr.net/npm/aws-svg-icons@3.0.0-2021-07-30/lib/Architecture-Service-Icons_07302021/Arch_Compute/48/Arch_AWS-Lambda_48.svg;width=60;height=60;fontStyle=1;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1060" y="430" width="60" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda-cache-text" value="cache_response" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=10;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1040" y="505" width="100" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="dynamodb" value="" style="shape=image;image=https://cdn.jsdelivr.net/npm/aws-svg-icons@3.0.0-2021-07-30/lib/Architecture-Service-Icons_07302021/Arch_Database/48/Arch_Amazon-DynamoDB_48.svg;width=60;height=60;fontStyle=1;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="360" y="600" width="70" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="dynamodb-text" value="DynamoDB" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=12;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="345" y="688" width="100" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="dynamodb-label" value="テーブル: bedrock-rag-dev-cache&lt;br&gt;キー: query_hash (PK)&lt;br&gt;TTL: 7日間" style="text;html=1;strokeColor=#8E44AD;strokeWidth=1;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#2E3A47;fontSize=9;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="435" y="598" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="bedrock-group" value="Amazon Bedrock" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#FF9900;fillColor=#FFF9E6;fontColor=#2E3A47;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;fontSize=12;fontStyle=1;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="950" y="600" width="480" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="claude" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#4AB29A;gradientDirection=north;fillColor=#116D5B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="980" y="640" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="claude-text" value="Claude 3 Haiku" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=11;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="965" y="728" width="100" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="claude-label" value="モデルID: anthropic.claude-3-haiku&lt;br&gt;最大トークン: 1024&lt;br&gt;温度: 0.7" style="text;html=1;strokeColor=#E67E22;strokeWidth=1;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#2E3A47;fontSize=9;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1070" y="645" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="kb" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#3F8624;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.generic_database;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="980" y="790" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="kb-text" value="Knowledge Base" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=11;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="960" y="878" width="110" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="kb-label" value="検索タイプ: セマンティック&lt;br&gt;最大結果数: 5件&lt;br&gt;埋め込み: Titan Embeddings" style="text;html=1;strokeColor=#3498DB;strokeWidth=1;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#2E3A47;fontSize=9;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1050" y="795" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="guardrails" value="" style="shape=image;image=https://cdn.jsdelivr.net/npm/aws-svg-icons@3.0.0-2021-07-30/lib/Architecture-Service-Icons_07302021/Arch_Security-Identity-Compliance/48/Arch_AWS-Shield_48.svg;width=60;height=60;fontStyle=1;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1280" y="715" width="70" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="guardrails-text" value="Guardrails" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=11;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1270" y="803" width="90" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="guardrails-label" value="コンテンツフィルター&lt;br&gt;PII検出&lt;br&gt;トピック制限" style="text;html=1;strokeColor=#E74C3C;strokeWidth=1;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#2E3A47;fontSize=9;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="1280" y="850" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="s3" value="" style="shape=image;image=https://cdn.jsdelivr.net/npm/aws-svg-icons@3.0.0-2021-07-30/lib/Architecture-Service-Icons_07302021/Arch_Storage/48/Arch_Amazon-Simple-Storage-Service_48.svg;width=60;height=60;fontStyle=1;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="680" y="790" width="70" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="s3-text" value="S3 Bucket" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=12;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="665" y="878" width="100" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="s3-label" value="PDFドキュメント保存&lt;br&gt;Knowledge Base データソース" style="text;html=1;strokeColor=#16A085;strokeWidth=1;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#2E3A47;fontSize=9;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="500" y="795" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="cloudwatch" value="" style="shape=image;image=https://cdn.jsdelivr.net/npm/aws-svg-icons@3.0.0-2021-07-30/lib/Architecture-Service-Icons_07302021/Arch_Management-Governance/48/Arch_Amazon-CloudWatch_48.svg;width=60;height=60;fontStyle=1;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="80" y="790" width="70" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="cloudwatch-text" value="CloudWatch Logs" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=12;strokeColor=none;fillColor=none;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="55" y="878" width="120" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="cloudwatch-label" value="ロググループ: /aws/lambda/*&lt;br&gt;保持期間: 30日" style="text;html=1;strokeColor=#E7157B;strokeWidth=1;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#2E3A47;fontSize=9;" parent="aws-cloud" vertex="1">
+                    <mxGeometry x="165" y="800" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-apigw-lambda" value="② Lambda起動" style="endArrow=block;html=1;strokeColor=#2E3A47;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;" parent="aws-cloud" source="apigw" target="lambda-api" edge="1">
+                    <mxGeometry x="0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-lambda-ddb-check" value="③ キャッシュ確認" style="endArrow=block;html=1;strokeColor=#8E44AD;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-api" target="dynamodb" edge="1">
+                    <mxGeometry x="0.2" y="-15" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-lambda-sfn" value="④ ワークフロー起動" style="endArrow=block;html=1;strokeColor=#27AE60;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;" parent="aws-cloud" source="lambda-api" target="stepfunctions" edge="1">
+                    <mxGeometry x="0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-sfn-gc" value="⑤ 入力チェック" style="endArrow=block;html=1;strokeColor=#E74C3C;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;" parent="aws-cloud" source="stepfunctions" target="lambda-gc" edge="1">
+                    <mxGeometry x="0.2" y="-15" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="715" y="300"/>
+                            <mxPoint x="1010" y="300"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-gc-guardrails" value="" style="endArrow=block;html=1;strokeColor=#E74C3C;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-gc" target="guardrails" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1010" y="290"/>
+                            <mxPoint x="1315" y="290"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-sfn-kb" value="⑥ KB検索" style="endArrow=block;html=1;strokeColor=#3498DB;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;" parent="aws-cloud" source="stepfunctions" target="lambda-kb" edge="1">
+                    <mxGeometry x="0.2" y="-15" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="715" y="300"/>
+                            <mxPoint x="1180" y="300"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-kb-knowledgebase" value="" style="endArrow=block;html=1;strokeColor=#3498DB;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-kb" target="kb" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1180" y="290"/>
+                            <mxPoint x="1015" y="290"/>
+                            <mxPoint x="1015" y="834"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-kb-s3" value="データ取得" style="endArrow=block;html=1;strokeColor=#16A085;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;dashed=1;" parent="aws-cloud" source="kb" target="s3" edge="1">
+                    <mxGeometry x="0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-sfn-bedrock" value="⑦ 推論実行" style="endArrow=block;html=1;strokeColor=#E67E22;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;" parent="aws-cloud" source="stepfunctions" target="lambda-bedrock" edge="1">
+                    <mxGeometry x="0.2" y="-15" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="715" y="300"/>
+                            <mxPoint x="1350" y="300"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-bedrock-claude" value="" style="endArrow=block;html=1;strokeColor=#E67E22;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-bedrock" target="claude" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1350" y="290"/>
+                            <mxPoint x="1015" y="290"/>
+                            <mxPoint x="1015" y="684"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-bedrock-guardrails" value="出力チェック" style="endArrow=block;html=1;strokeColor=#E74C3C;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-bedrock" target="guardrails" edge="1">
+                    <mxGeometry x="0.4" y="15" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1350" y="290"/>
+                            <mxPoint x="1315" y="290"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-sfn-cache" value="⑧ キャッシュ保存" style="endArrow=block;html=1;strokeColor=#8E44AD;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;" parent="aws-cloud" source="stepfunctions" target="lambda-cache" edge="1">
+                    <mxGeometry x="0.2" y="10" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="715" y="467"/>
+                            <mxPoint x="1090" y="467"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-cache-ddb" value="" style="endArrow=block;html=1;strokeColor=#8E44AD;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-cache" target="dynamodb" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1090" y="550"/>
+                            <mxPoint x="395" y="550"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-lambda-cw-1" value="⑨ ログ出力" style="endArrow=block;html=1;strokeColor=#E7157B;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-api" target="cloudwatch" edge="1">
+                    <mxGeometry x="0.6" y="-20" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="395" y="500"/>
+                            <mxPoint x="115" y="500"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-lambda-cw-2" value="" style="endArrow=block;html=1;strokeColor=#E7157B;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-gc" target="cloudwatch" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1010" y="540"/>
+                            <mxPoint x="115" y="540"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-lambda-cw-3" value="" style="endArrow=block;html=1;strokeColor=#E7157B;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-kb" target="cloudwatch" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1180" y="540"/>
+                            <mxPoint x="115" y="540"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-lambda-cw-4" value="" style="endArrow=block;html=1;strokeColor=#E7157B;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-bedrock" target="cloudwatch" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1350" y="540"/>
+                            <mxPoint x="115" y="540"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-lambda-cw-5" value="" style="endArrow=block;html=1;strokeColor=#E7157B;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;fontSize=10;dashed=1;" parent="aws-cloud" source="lambda-cache" target="cloudwatch" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1090" y="550"/>
+                            <mxPoint x="115" y="550"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="user" value="" style="shape=mxgraph.aws4.user;width=60;height=60;fontStyle=1;fontSize=12;fillColor=#D5E8D4;strokeColor=#2E3A47;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="450" width="78" height="87" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-text" value="クライアント" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontStyle=1;fontSize=12;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="541" width="78" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-user-apigw" value="① POST /query" style="endArrow=block;html=1;strokeColor=#2E3A47;strokeWidth=2;rounded=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontSize=10;" parent="1" source="user" target="apigw" edge="1">
+                    <mxGeometry x="0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
